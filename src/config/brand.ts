@@ -23,7 +23,7 @@ export const brand = {
     symbol: "EXOVIA",
     decimals: 6,
     /** Ganti di sini saja — sisanya ikut sendiri. */
-    mint: "XXXXXXXXXXXXXXXXXXXXXpump",
+    mint: "Dnt1sDiLDzz1dbPTbCgyLSccjyaJLsiZwgskjTU9pump",
   },
 
   // ── VAULT ────────────────────────────────────────────────
