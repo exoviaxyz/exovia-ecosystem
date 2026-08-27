@@ -41,7 +41,7 @@ export const brand = {
 
   // ── LINKS ────────────────────────────────────────────────
   links: {
-    twitter: "https://x.com/exovia",
+    twitter: "https://x.com/exoviaxyz",
     github: "https://github.com/exoviaxyz/exovia-ecosystem",
     /**
      * Masih URL dasar sampai kontrak vesting Exovia ada — tambahkan alamat
