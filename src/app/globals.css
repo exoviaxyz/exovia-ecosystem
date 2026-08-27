@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+/* ── Design tokens ─────────────────────────────────────────
+   Dua tema, satu set nama. Nilai mentahnya hidup di :root dan
+   ditukar oleh [data-theme]; Tailwind hanya memetakan namanya.
+   Jangan pernah menulis hex langsung di komponen.
+   ───────────────────────────────────────────────────────── */
+
+:root {
+  --ex-void: #040806;
+  --ex-sunk: #010302;
+  --ex-panel: #070d0a;
+  --ex-raised: #0b1310;
+  --ex-line: #34e39b1f;
+  --ex-line-strong: #34e39b3d;
+
+  --ex-ink: #dcf3ea;
+  --ex-ink-dim: #7fb39c;
+  --ex-ink-faint: #5c8974;
+  --ex-ink-ghost: #3b5a4b;
+
+  --ex-accent: #34e39b;
+  --ex-accent-dim: #16b98a;
+  --ex-accent-soft: #8ff3c9;
+
+  --ex-warn: #e0b155;
+  --ex-danger: #f0616d;
+
+  --ex-glow: #34e39b14;
+  --ex-scan: #ffffff0a;
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --ex-void: #eff9f4;
+  --ex-sunk: #e2f2ea;
+  --ex-panel: #ffffff;
+  --ex-raised: #f5fdf9;
+  --ex-line: #0f9d6329;
+  --ex-line-strong: #0f9d634d;
+
+  --ex-ink: #07160e;
+  --ex-ink-dim: #2f5544;
+  --ex-ink-faint: #587f6c;
+  --ex-ink-ghost: #93b3a3;
+
+  --ex-accent: #0f9d63;
+  --ex-accent-dim: #0a7a4c;
+  --ex-accent-soft: #17c67d;
+
+  --ex-warn: #a86a10;
+  --ex-danger: #c8323f;
+
+  --ex-glow: #0f9d6310;
+  --ex-scan: #07160e05;
+
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-void: var(--ex-void);
+  --color-sunk: var(--ex-sunk);
+  --color-panel: var(--ex-panel);
+  --color-raised: var(--ex-raised);
+  --color-line: var(--ex-line);
+  --color-line-strong: var(--ex-line-strong);
+
+  --color-ink: var(--ex-ink);
+  --color-ink-dim: var(--ex-ink-dim);
+  --color-ink-faint: var(--ex-ink-faint);
+  --color-ink-ghost: var(--ex-ink-ghost);
+
+  --color-accent: var(--ex-accent);
+  --color-accent-dim: var(--ex-accent-dim);
+  --color-accent-soft: var(--ex-accent-soft);
+
+  --color-warn: var(--ex-warn);
+  --color-danger: var(--ex-danger);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
+}
+
+* {
+  border-color: var(--ex-line);
+}
+
+html {
+  background: var(--ex-void);
+}
+
+body {
+  background: var(--ex-void);
+  color: var(--ex-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--ex-accent);
+  color: var(--ex-void);
+}
+
+/* ── Typography ────────────────────────────────────────── */
+
+/* Headline situs: berat, rapat, dua warna. */
+.display {
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ex-ink-faint);
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.accent-text {
+  background: linear-gradient(
+    100deg,
+    var(--ex-accent) 0%,
+    var(--ex-accent-soft) 55%,
+    var(--ex-accent-dim) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Surfaces ──────────────────────────────────────────── */
+
+.panel {
+  background: var(--ex-panel);
+  border: 1px solid var(--ex-line);
+  border-radius: 16px;
+}
+
+.panel-raised {
+  background: var(--ex-raised);
+  border: 1px solid var(--ex-line);
+  border-radius: 16px;
+}
+
+.chip {
+  border: 1px solid var(--ex-line);
+  border-radius: 9999px;
+  background: var(--ex-glow);
+}
+
+/* Kabut hijau samar di belakang hero dan pita ajakan. */
+.aura {
+  background:
+    radial-gradient(
+      ellipse 60% 50% at 15% 0%,
+      var(--ex-glow) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 45% 45% at 85% 20%,
+      var(--ex-glow) 0%,
+      transparent 70%
+    );
+}
+
+.scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 3px,
+    var(--ex-scan) 3px 4px
+  );
+}
+
+/* ── Motion ────────────────────────────────────────────── */
+
+.pulse-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* ── Focus ─────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 1px solid var(--ex-accent);
+  outline-offset: 2px;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ex-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ex-line-strong);
+  border: 2px solid var(--ex-void);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ex-ink-ghost);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
