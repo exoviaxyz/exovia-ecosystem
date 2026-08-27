@@ -43,12 +43,9 @@ export const brand = {
   links: {
     twitter: "https://x.com/exoviaxyz",
     github: "https://github.com/exoviaxyz/exovia-ecosystem",
-    /**
-     * Masih URL dasar sampai kontrak vesting Exovia ada — tambahkan alamat
-     * kontraknya di belakang, ikon di navbar dan footer ikut sendiri.
-     * Tautan yang dikosongkan ("#") tidak dirender sama sekali.
-     */
-    streamflow: "https://app.streamflow.finance/contract/solana/mainnet/",
+    /** Tautan yang dikosongkan ("#") tidak dirender sama sekali. */
+    streamflow:
+      "https://app.streamflow.finance/contract/solana/mainnet/8svPgRm92C5NWfKhoaQoZj1AEmpdVSP7TSfsryFXHJFX",
     email: "hello@exovia.xyz",
     docs: "/docs",
     app: "/app",
